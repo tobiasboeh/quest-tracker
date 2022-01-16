@@ -21,16 +21,12 @@ class StartPageScreen extends StatelessWidget {
             Tab(icon: Icon(FontAwesomeIcons.hatWizard)),
           ]),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             NotesScreen(),
             PlacesScreen(),
             PersonsScreen(),
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(FontAwesomeIcons.plus),
         ),
       ),
     );
