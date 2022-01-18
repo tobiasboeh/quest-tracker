@@ -14,7 +14,7 @@ class StartPageScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Quest Tracker', style: GoogleFonts.berkshireSwash()),
+          title: const Text('Quest Tracker'),
           bottom: const TabBar(tabs: [
             Tab(icon: Icon(FontAwesomeIcons.featherAlt)),
             Tab(icon: Icon(FontAwesomeIcons.mapSigns)),

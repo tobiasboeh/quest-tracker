@@ -3,8 +3,9 @@ import 'package:quest_tracker_flutter/models/person.dart';
 import 'package:hive/hive.dart';
 
 class CreatePersomWidget extends StatefulWidget {
-  const CreatePersomWidget({Key? key}) : super(key: key);
-
+  const CreatePersomWidget({required this.personCreated, Key? key})
+      : super(key: key);
+  final Function personCreated;
   @override
   State<CreatePersomWidget> createState() => _CreatePersomWidgetState();
 }
@@ -17,17 +18,13 @@ class _CreatePersomWidgetState extends State<CreatePersomWidget> {
   savePerson() async {
     var box = await Hive.openBox('database');
 
-    // var person = Person()
-    //   ..name = _name.value.text
-    //   ..classType = _desc.value.text
-    //   ..desc;
-    // box.add(person);
+    var person = Person()
+      ..name = _name.value.text
+      ..classType = _class.value.text
+      ..desc = _desc.value.text;
 
-    box.add({
-      'name': _name.value.text,
-      'class': _class.value.text,
-      'desc': _desc.value.text
-    });
+    box.add(person);
+    widget.personCreated();
     Navigator.of(context).pop();
   }
 
